@@ -1,150 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ParaYasmin</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #fceaea;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+  <meta charset="UTF-8">
+  <title>heart letter by alexx_deev</title>
+  <link rel="stylesheet" href="./style.css">
 
-        .card {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            position: relative;
-        }
-
-        .card h1 {
-            font-size: 24px;
-            color: #333;
-        }
-
-        .flowers {
-            margin: 20px 0;
-        }
-
-        .flower-image {
-            max-width: 100%;
-            height: auto;
-            margin-top: 20px;
-        }
-
-        .message-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .arrow {
-            font-size: 30px;
-            color: #333;
-            cursor: pointer;
-            user-select: none;
-            position: absolute;
-            bottom: 10px;
-            padding: 10px;
-        }
-
-        #left-arrow {
-            left: 10px;
-        }
-
-        #right-arrow {
-            right: 10px;
-        }
-
-        .text {
-            font-size: 16px;
-            color: #555;
-            margin: 0 10px;
-            min-height: 60px;
-            line-height: 1.5;
-        }
-
-        footer {
-            font-size: 10px;
-            color: #aaa;
-            margin-top: 20px;
-        }
-
-        #cora {
-            width: 5%;
-        }
-    </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Feliz cumpleaños Yasmin <img src="corazon.png" alt="No funciona" id="cora"></h1>
-        <div class="flowers">
-            <img src="flor.png" alt="Flor" class="flower-image">
+<div class="envlope-wrapper">
+    <div id="envelope" class="close">
+        <div class="front flap"></div>
+        <div class="front pocket"></div>
+        <div class="letter">
+            <div class="words line1"></div>
+            <div class="words line2"></div>
+            <div class="words line3"></div>
+            <div class="words line4"></div>
         </div>
-        <div class="message-container">
-            <div class="text" id="text">I miss you sooooo much and love you sooooo much*</div>
+        <div class="hearts">
+            <div class="heart a1"></div>
+            <div class="heart a2"></div>
+            <div class="heart a3"></div>
         </div>
-        <footer>
-            1 / 4
-        </footer>
-        <div class="arrow" id="left-arrow">&larr;</div>
-        <div class="arrow" id="right-arrow">&rarr;</div>
     </div>
+</div>
+<div class="reset">
+    <button id="open">Open</button>
+    <button id="reset">Reset</button>
+</div>
 
-    <script>
-        const messages = [
-            "Tengo que escribir aqui Carmen"
-        ];
+<!-- 
 
-        let currentIndex = 0;
-        const textElement = document.getElementById('text');
-        const leftArrow = document.getElementById('left-arrow');
-        const rightArrow = document.getElementById('right-arrow');
-        const footer = document.querySelector('footer');
+Buy me a coffee:
 
-        function typeText(text, element) {
-            element.innerHTML = '';
-            let i = 0;
-            const interval = setInterval(() => {
-                element.innerHTML += text[i];
-                i++;
-                if (i === text.length) {
-                    clearInterval(interval);
-                }
-            }, 50);
-        }
+    * https://buymeacoffee.com/alexx.dev
+    * https://www.tiktok.com/@alexx.dev?is_from_webapp=1&sender_device=pc  
 
-        function updateFooter(index) {
-            footer.textContent = `${index + 1} / ${messages.length}`;
-        }
+-->
+    
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+  <script  src="./script.js"></script>
 
-        function updateText(index) {
-            const textWithBreaks = messages[index].replace(/<br>/g, '\n'); // Preserve line breaks during typing
-            typeText(textWithBreaks, textElement);
-            updateFooter(index); // Update the footer with the correct page number
-        }
-
-        leftArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + messages.length) % messages.length;
-            updateText(currentIndex);
-        });
-
-        rightArrow.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % messages.length;
-            updateText(currentIndex);
-        });
-
-        // Initialize with the first message
-        updateText(currentIndex);
-    </script>
 </body>
 </html>
