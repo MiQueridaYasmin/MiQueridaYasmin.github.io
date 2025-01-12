@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Interactivas</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .flower {
+            position: absolute;
+            width: 10px; /* Tamaño inicial para hacerlo visible */
+            height: 10px; /* Tamaño inicial para hacerlo visible */
+            animation: grow 1s ease-out forwards;
+        }
+
+        .petal {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            transform-origin: center;
+        }
+
+        .center {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+            border-radius: 50%;
+            top: 35px;
+            left: 35px;
+        }
+
+        @keyframes grow {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.body.addEventListener('click', (event) => {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.style.left = `${event.clientX - 40}px`;
+            flower.style.top = `${event.clientY - 40}px`;
+
+            for (let i = 0; i < 5; i++) {
+                const petal = document.createElement('div');
+                petal.className = 'petal';
+                petal.style.transform = `rotate(${i * 72}deg) translate(40px)`;
+                flower.appendChild(petal);
+            }
+
+            const center = document.createElement('div');
+            center.className = 'center';
+            flower.appendChild(center);
+
+            document.body.appendChild(flower);
+
+            setTimeout(() => {
+                flower.remove();
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

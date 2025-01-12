@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ParaYasmin</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fceaea;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            position: relative;
+        }
+
+        .card h1 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .flowers {
+            margin: 20px 0;
+        }
+
+        .flower-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .message-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .arrow {
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+            user-select: none;
+            position: absolute;
+            bottom: 10px;
+            padding: 10px;
+        }
+
+        #left-arrow {
+            left: 10px;
+        }
+
+        #right-arrow {
+            right: 10px;
+        }
+
+        .text {
+            font-size: 16px;
+            color: #555;
+            margin: 0 10px;
+            min-height: 60px;
+            line-height: 1.5;
+        }
+
+        footer {
+            font-size: 10px;
+            color: #aaa;
+            margin-top: 20px;
+        }
+
+        #cora {
+            width: 5%;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Feliz cumpleaños Yasmin <img src="corazon.png" alt="No funciona" id="cora"></h1>
+        <div class="flowers">
+            <img src="flor.png" alt="Flor" class="flower-image">
+        </div>
+        <h4>Para terminar te dedico unas ultimas palabras</h4>
+        <div class="message-container">
+            <div class="text" id="text">I miss you sooooo much and love you sooooo much*</div>
+        </div>
+        <footer>
+            1 / 4
+        </footer>
+        <div class="arrow" id="left-arrow">&larr;</div>
+        <div class="arrow" id="right-arrow">&rarr;</div>
+    </div>
+
+    <script>
+        const messages = [
+            "Tu de verdad me has hecho descubrir y sentir que es el amor verdadero",
+            "Jamas me habian demostrado que me podian querer asi, gracias por siempre estar ahi cuando te necesitaba",
+            "La distancia no va a impedir que te quiera con toda mi alma",
+            "Aunque nos peleemos nunca dejare de preferirte a ti que a cualquiera"
+
+        ];
+
+        let currentIndex = 0;
+        const textElement = document.getElementById('text');
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+        const footer = document.querySelector('footer');
+
+        function typeText(text, element) {
+            element.innerHTML = '';
+            let i = 0;
+            const interval = setInterval(() => {
+                element.innerHTML += text[i];
+                i++;
+                if (i === text.length) {
+                    clearInterval(interval);
+                }
+            }, 50);
+        }
+
+        function updateFooter(index) {
+            footer.textContent = `${index + 1} / ${messages.length}`;
+        }
+
+        function updateText(index) {
+            const textWithBreaks = messages[index].replace(/<br>/g, '\n'); // Preserve line breaks during typing
+            typeText(textWithBreaks, textElement);
+            updateFooter(index); // Update the footer with the correct page number
+        }
+
+        leftArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + messages.length) % messages.length;
+            updateText(currentIndex);
+        });
+
+        rightArrow.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % messages.length;
+            updateText(currentIndex);
+        });
+
+        // Initialize with the first message
+        updateText(currentIndex);
+    </script>
+</body>
+</html>
