@@ -134,9 +134,9 @@
         }
 
         function updateText(index) {
-            const textWithBreaks = messages[index].replace(/<br>/g, '\n'); // Preserve line breaks during typing
+            const textWithBreaks = messages[index].replace(/<br>/g, '\n'); 
             typeText(textWithBreaks, textElement);
-            updateFooter(index); // Update the footer with the correct page number
+            updateFooter(index); 
         }
 
         leftArrow.addEventListener('click', () => {
@@ -149,7 +149,6 @@
             updateText(currentIndex);
         });
 
-        // Initialize with the first message
         updateText(currentIndex);
     </script>
 </body>
