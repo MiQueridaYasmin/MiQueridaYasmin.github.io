@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #fed7ff;
+            margin: 0;
+            margin-left: 250px;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative; /* Necesario para que el posicionamiento absoluto funcione */
+            min-height: 100vh; /* Asegura que el contenido ocupe toda la pantalla */
+        }
+        p {
+            font-weight: bold;
+        }
+        #izq {
+            width: 50%;
+        }
+        #der {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        #der img {
+            width: 100%;
+            max-height: 100vh;
+        }
+        #abajo {
+            position: absolute;
+            bottom: 0; /* Coloca la imagen al fondo */
+            left: 50%; /* Centra horizontalmente */
+            transform: translateX(-50%); /* Ajusta el centrado */
+            width: 20%; /* Ajusta el tamaño según prefieras */
+        }
+        #cora {
+            width: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div id="izq">
+        <h1>ABECEDARIO DE PLANES</h1>
+        <p>A: ACUARIO...</p>
+        <p>B: BOLOS...</p>
+        <p>C: CINE, CONCIERTO...</p>
+        <p>D: DESAYUNO...</p>
+        <p>E: ESCAPE ROOM, EXCURSIONES...</p>
+        <p>F: FESTIVAL...</p>
+        <p>G: GYM, GOLF...</p>
+        <p>H: HELADOS...</p>
+        <p>I: INTERCAMBIAR ALGO QUE NOS GUSTE...</p>
+        <p>J: JUEGO DE MESA, JACUZZI...</p>
+        <p>K: KARAOKE, KARTS, KAYAK...</p>
+        <p>L: LEER...</p>
+        <p>M: MASAJE, MANUALIDADES...</p>
+        <p>N: NETFLIX...</p>
+        <p>Ñ: NO SE ME HA OCURRIDO NINGUNA JAJAJAJA</p>
+        <p>O: OBSERVAR ESTRELLAS, ORIGAMI...</p>
+        <p>P: PAINTBALL, PICNIC, PARQUE DE ATRACCIONES, PIZZA...</p>
+        <p>Q: QUAD, QUIZ...</p>
+        <p>R: RESTAURANTE, RECREATIVOS, RUTAS...</p>
+        <p>S: SURF, SALSA...</p>
+        <p>P: PARTIDO DE CUALQUIER COSA, TEATRO...</p>
+        <p>V: VACACIONES, VR, VIDEOJUEGOS...</p>
+        <p>X: XILOGRAFIA</p>
+        <p>Y: YOGA...</p>
+        <p>Z: ZOO...</p>
+        <a href="frases.html">Para acabar<img src="corazon.png" alt="No funciona" id="cora"></a>
+    </div>
+    <div id="der">
+        <img src="hello kitty.jpg" alt="Hello Kitty">
+    </div>
+    <!-- Nueva imagen abajo -->
+    <img id="abajo" src="hello.webp" alt="Hello Kitty 2">
+</body>
+</html>
