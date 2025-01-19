@@ -8,38 +8,94 @@
         body {
             background-color: #fed7ff;
             margin: 0;
-            margin-left: 250px;
-            padding: 0;
+            padding: 1rem;
+            font-family: Arial, sans-serif;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            position: relative; /* Necesario para que el posicionamiento absoluto funcione */
-            min-height: 100vh; /* Asegura que el contenido ocupe toda la pantalla */
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
-        p {
+
+        #izq, #der {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        #izq h1 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        #izq p {
+            font-weight: bold;
+            margin: 0.5rem 0;
+            font-size: 1rem;
+            text-align: left;
+        }
+
+        #izq a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #000;
+            margin-top: 1rem;
             font-weight: bold;
         }
-        #izq {
-            width: 50%;
+
+        #izq a img {
+            margin-left: 0.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
         }
-        #der {
-            width: 50%;
-            display: flex;
-            justify-content: flex-end;
-        }
+
         #der img {
             width: 100%;
-            max-height: 100vh;
+            max-width: 400px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
+
         #abajo {
-            position: absolute;
-            bottom: 0; /* Coloca la imagen al fondo */
-            left: 50%; /* Centra horizontalmente */
-            transform: translateX(-50%); /* Ajusta el centrado */
-            width: 20%; /* Ajusta el tamaño según prefieras */
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            margin-top: 1rem;
         }
-        #cora {
-            width: 2%;
+
+        /* Estilos responsivos */
+        @media (min-width: 768px) {
+            body {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+                padding: 2rem;
+            }
+
+            #izq {
+                width: 45%;
+            }
+
+            #izq h1 {
+                font-size: 2rem;
+            }
+
+            #izq p {
+                font-size: 1.2rem;
+            }
+
+            #der {
+                width: 45%;
+            }
+
+            #abajo {
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
